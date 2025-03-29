@@ -19,6 +19,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
@@ -49,7 +50,10 @@ fun FlickApp(
                         }
                     },
                     actions = {
-                        IconButton(onClick = onToggleTheme) {
+                        IconButton(
+                            modifier = Modifier.testTag("dark_light_mode"),
+                            onClick = onToggleTheme
+                        ) {
                             Icon(
                                 imageVector = if (isDarkTheme) Icons.Rounded.LightMode else Icons.Rounded.DarkMode,
                                 contentDescription = null
